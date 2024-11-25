@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+  publish = "dist/public"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["telegraf"]
+
+[[redirects]]
+  from = "/webhook"
+  to = "/.netlify/functions/webhook"
+  status = 200
